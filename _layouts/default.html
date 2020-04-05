@@ -21,11 +21,11 @@
         {% if site.description or site.github.project_tagline %}
           <p>{{ site.description | default: site.github.project_tagline }}</p>
         {% endif %}
-        <p class="view"><a href="{{ site.github.repository_url }}">View the Project on GitHub <small>{{ github_name }}</small></a></p>
+        <p><a href="{{ site.github.repository_url }}">View the Project on GitHub <small> Satish Lokkoju</small></a></p>
         <ul>
-          <li><a href="{{ site.github.linkedin }}">Goto <strong>Linkedin</strong></a></li>
+          <li><a href="{{ site.github.linkedin }}"><svg class="svg-icon"><use xlink:href="/assets/images/minima-icons.svg#linkedin"></use></svg> Goto <strong>Linkedin</strong> </a></li>
           <li><a href="{{ site.github.resume }}">Download <strong>Resume</strong></a></li>
-          <li><a href="{{ site.github.repository_url }}">Goto <strong>GitHub</strong></a></li>
+          <li><a href="{{ site.github.repository_url }}"><svg class="svg-icon"><use xlink:href="/assets/images/minima-icons.svg#github"></use></svg> Goto <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
@@ -36,7 +36,7 @@
     </div>
     <footer>
     {% if site.github.is_project_page %}
-      <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+      <p>Personal site of <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
     {% endif %}
       <p>Hosted on GitHub Pages &mdash; Theme inspired from <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>

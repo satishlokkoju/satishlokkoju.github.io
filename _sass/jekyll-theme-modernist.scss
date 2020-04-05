@@ -24,7 +24,20 @@ body {
   border-radius: 8px;
   box-shadow: rgba(#000, 0.2) 0 0 0 1px, rgba(#000, 0.45) 0 3px 10px;
 }
+/**
+ * Icons
+ */
+ .svg-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: #000000;
+  padding-right: 5px;
+  vertical-align: text-top; }
 
+.social-media-list li + li {
+  padding-top: 5px; }
+  
 header, section, footer {
   display:block;
 }
@@ -55,9 +68,9 @@ header {
   h1 {
     margin:0;
     padding:0;
-    font-size:24px;
+    font-size:28px;
     line-height:1.2;
-    color:#069;
+    color:#068;
     text-shadow:rgba(#fff, 0.9) 0 1px 0;
   }
 
@@ -69,7 +82,7 @@ header {
     margin:0;
     color:#61778B;
     width:300px;
-    font-size:13px;
+    font-size:16px;
 
     &.view {
       display:none;
@@ -94,8 +107,8 @@ header {
     position:absolute;
     z-index:1;
     right:20px;
-    top:20px;
-    height:38px;
+    top:30px;
+    height:48px;
     padding:1px 0;
     background:#5198DF;
     background: linear_gradient(#77B9FB, #3782CD);
@@ -139,7 +152,7 @@ header {
 
     a {
       line-height:1;
-      font-size:11px;
+      font-size:13px;
       color:#fff;
       color:rgba(#fff, 0.8);
       display:block;
@@ -151,6 +164,7 @@ header {
 
       strong {
         font-size:14px;
+        padding-top:6px;
         display:block;
         color:#fff;
         -webkit-font-smoothing:antialiased;
