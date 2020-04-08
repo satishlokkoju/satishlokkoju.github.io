@@ -1,4 +1,11 @@
-# Knowledge Hub
+---
+layout: default
+title: "Knowledge Hub"
+comments: true
+description: "This post contains interesting links which were shared by my colleague."
+date: 2020-03-21 12:00:00 +0530
+---
+
 ## Blogs & newsletters:
 - [Great interactive content blog](https://distill.pub/)
 - [Interesting blog written by some Stanford researchers](https://thegradient.pub/)
