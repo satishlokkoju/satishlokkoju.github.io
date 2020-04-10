@@ -6,6 +6,11 @@ github:
   linkedin: https://www.linkedin.com/in/lsatish
   resume: https://www.linkedin.com/in/lsatish
   repository_url: https://www.github.com/satishlokkoju
+contact:
+  mail: mailto:satish.lokkoju@gmail.com?subject=hello satish
 website:
   url: http://satishlokkoju.github.io
   shortened: Satish Lokkoju
+strings:
+  about_me: About Me
+  name: Satish Lokkoju

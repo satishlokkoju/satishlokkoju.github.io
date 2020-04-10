@@ -1,3 +1,11 @@
+---
+layout: default
+title: "markup reference"
+comments: true
+description: "This is a reference for Markup syntax"
+date: 2020-03-21 12:00:00 +0530
+---
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/satishlokkoju/satishlokkoju.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
