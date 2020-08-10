@@ -1,9 +1,14 @@
 ---
-layout: default
+layout: note
 title: "Knowledge Hub"
 comments: true
 description: "This post contains interesting links which were shared by my colleague."
+image: /assets/images/posts/learning.webp
+image-thumb: /assets/images/posts/learning.webp
 date: 2020-03-21 12:00:00 +0530
+tags:
+  - articles
+  - knowledge
 ---
 
 ## Blogs & newsletters:

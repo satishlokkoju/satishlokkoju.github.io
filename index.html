@@ -1,0 +1,120 @@
+---
+layout: main
+title: Satish Lokkoju writes about Machine Learning & Economics
+excerpt: Satish Lokkoju is a Research Scientist working for Amazon, writes about Machine Learning & Economics
+---
+
+{% if page.url == "/" %}
+
+<!-- <div class="section section-basic">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-6">
+        <a href="/research/">
+          <div class="card">
+            <div class="card-body" style="height: 330px;">
+              <div class="card-image" style="background-image: url(/assets/images/pages/dino-reichmuth-A5rCN8626Ck-unsplash.webp)"></div>
+              <div class="card-title">Research Journey</div>
+              <div class="card-description">Collections of readings and writings along this long PhD journey.</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-6 col-md-6">
+        <a href="/research/eeg-ssvep/">
+          <div class="card">
+            <div class="card-body" style="height: 330px;">
+              <div class="card-image" style="background-image: url(/assets/images/pages/glasses-notebook-and-laptop.webp)"></div>
+              <div class="card-title">Current Focus</div>
+              <div class="card-description">Right now I'm working on SSVEP Detection</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+{% endif %}
+
+  <div class="container">
+    <div class="row">
+
+      {% for post in paginator.posts %}
+        {% if post.show_homepage != false %}
+          {% include post_card.html %}
+        {% endif %}
+        <!-- <div class="col-sm-6 col-md-6 col-lg-4">
+          <a href="{{ page.url | prepend: site.baseurl }}">
+            <div class="card">
+              <div class="card-body" style="height:436px;">
+                <div class="card-image" style="background-image: url({{page.image}})"></div>
+                <span class="badge badge-default">{{ page.date | date_to_string }}</span>
+                <div class="card-title">{{page.title}} {{page.type}}</div>
+                <div class="card-description">{{ page.description | truncate: 160 }}</div>
+                <div class="card-footer">
+                </div>
+              </div>
+            </div>
+          </a>
+        </div> -->
+      {% endfor %}
+
+    </div>
+  </div>
+
+  <div class="container" style="padding-left: 20px; padding-right: 20px; ">
+
+      <div class="row">
+        <div class="col-sm-9">
+          <!-- Pagination links -->
+          {% if paginator.total_pages > 1 %}
+          <ul class="pagination">
+            {% if paginator.previous_page %}
+            <li class="page-item">
+              <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous">
+                <span aria-hidden="true">
+                  <!-- <i class="fa fa-angle-double-left" aria-hidden="true"></i> -->
+                  <i class="material-icons">chevron_left</i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+
+            {% for page in (1..paginator.total_pages) %}
+              {% if page == paginator.page %}
+                <li class="page-item active">
+                  <a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+                </li>
+              {% elsif page == 1 %}
+                <li class="page-item">
+                  <a class="page-link" href="/">{{ page }}</a>
+                </li>
+              {% else %}
+                <li class="page-item">
+                  <a class="page-link waves-effect" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+
+            {% if paginator.next_page %}
+            <li class="page-item">
+              <a class="page-link" href="{{ paginator.next_page_path | relative_url }}" aria-label="Next">
+                <span aria-hidden="true">
+                  <!-- <i class="fa fa-angle-double-right" aria-hidden="true"></i> -->
+                  <i class="material-icons">chevron_right</i>
+                </span>
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+          {% endif %}
+
+          <!-- END Pagination links -->
+        </div>
+        <div class="col-sm-3" style="text-align:right;">
+          <a href="/tags/">Browse articles by tags</a>
+        </div>
+      </div>
+
+  </div>

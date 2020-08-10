@@ -14,3 +14,15 @@ website:
 strings:
   about_me: About Me
   name: Satish Lokkoju
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate: 22
+paginate_path: "/page:num/"
+
+permalink: pretty
+
+future: true
