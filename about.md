@@ -16,7 +16,7 @@ tags:
   - Publications
 ---
 Engineer and wannabe _economist_ with 9+ Years of experience in the field of  Computer Vision, Machine Learning and Deep Learning. Graduated with Bachelors in Electrical and Electronics Engineering and Masters of Science in Economics from Birla Institute of Technology and Science, Pilani Rajasthan.
-Currently working in **Amazon** as a _Research Scientist II_ in the field of computer vision and machine learning. I like the challenge of developing complex vision/ Machine Learning solutions for memory/resource constrained hardware.
+Currently working in **Amazon** as a _Applied Scientist II_ in the field of computer vision and machine learning. I like the challenge of developing complex vision/ Machine Learning solutions for memory/resource constrained hardware.
 Earlier in a different life, I worked in **Canon** on Vision framework which is used in many product families. Before Canon I have successful stint in **Samsung**. Successfully commercialized computer vision/ imaging solutions to Samsung Galaxy series mobile devices. We also developed POC of pixel wise image classification (semantic segmentation), virtual human character modelling and face feature tracking algorithms.
 
 My github profile contains the following personal projects I worked on.
