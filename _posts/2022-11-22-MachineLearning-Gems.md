@@ -10,4 +10,19 @@ tags:
   - Math
 ---
 
-All these are important units of knowledge 
+# Important units of knowledge 
+
+
+## What curse of dimensionality
+
+## What is law of large number
+
+## What is MLE
+
+## How do you define eigen vectors and eigen values.
+
+
+## Discuss the curse of dimensionality in detail ?
+
+
+## 
