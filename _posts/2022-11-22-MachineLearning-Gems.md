@@ -44,8 +44,22 @@ tags:
 
 ### What is AUC, ROC ?
 
+<<<<<<< HEAD
 ### What is specivity ?
+=======
+### What is specificity ?
+>>>>>>> 8a74820 (Updated the ML knowledge gems)
 
 ### What is the intution behing MobileNets
   The big idea behind mobilenets is to use the depthwise seperable convolutions to build light weight deep neural networks.
   https://machinethink.net/blog/googles-mobile-net-architecture-on-iphone/
+<<<<<<< HEAD
+=======
+
+### What are heuristics ?
+
+Heuristics are mental shortcuts that can facilitate problem-solving and probability judgements. These strategies are generalizations or rules of thumb, reduce cognitive load and can be effective for making immediate judgements, however, they often result in irrational or inaccurate conclusions.
+
+### What is cross validation ?
+Cross validation is a method of model evaluation which splits the data in creative ways in order to obtain better estimates of "real world"
+>>>>>>> 8a74820 (Updated the ML knowledge gems)
