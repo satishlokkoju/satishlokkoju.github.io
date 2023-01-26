@@ -32,8 +32,8 @@ I am interested in computer vision and machine learning and have 3 patents and 2
 ## Patents and Publications
 
 1.	_Method and apparatus for coding unit partition search (Indian patent filed). The patent deals with a new algorithm for detecting coding unit partition in a fast and efficient way._
-2.	_Composition based Gallery Image search using improved semantic Segmentation [US9886762B2](https://patents.google.com/patent/US20160027180/en). The patent deals with a new way of searching local/cloud images using semantic information._
-3.	_Virtual Reality Headset controlled by Smart Watch [US10521009B2](https://patents.google.com/patent/US10001817B2/en). The patent deals with the use of rotating bezel of a smartwatch to control the Virtual Reality Headset._
+2.	_Composition based Gallery Image search using improved semantic Segmentation [US9886762B2](https://patents.google.com/patent/US9886762B2/en). The patent deals with a new way of searching local/cloud images using semantic information._
+3.	_Virtual Reality Headset controlled by Smart Watch [US10521009B2](https://patents.google.com/patent/US10521009B2/en?oq=US10521009B2). The patent deals with the use of rotating bezel of a smartwatch to control the Virtual Reality Headset._
 4.	_Fast Coding Unit Partition Search. The paper presents a novel algorithm to find a good coding unit partition which (CU partition) results in good compression similar to brute force search. Paper published in IEEE ISSPIT Vietnam 2012._
 5.	_Single Touch Segmentation using Random Walks and Graph Cuts. Paper published in International Conference on Image Processing (ICIP 2015)._
 6.	_Generic Approach for Document Extraction using Semantic Segmentation Badrinath G. Srinivas, Satish Lokkoju and Amaresh K Pande. Paper published in ACVC 2020._   
