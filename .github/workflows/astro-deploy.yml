@@ -29,10 +29,16 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Copy build to root
+      - name: Clean root except source and config
         run: |
-          rm -rf ../!(astro-src|.git|.github|.gitignore)
-          cp -r dist/* ../
+          find .. -mindepth 1 -maxdepth 1 \
+            ! -name 'astro-src' \
+            ! -name '.git' \
+            ! -name '.github' \
+            ! -name '.gitignore' \
+            -exec rm -rf {} +
+      - name: Copy build to root
+        run: cp -r dist/* ../
 
       - name: Commit and push changes
         run: |
