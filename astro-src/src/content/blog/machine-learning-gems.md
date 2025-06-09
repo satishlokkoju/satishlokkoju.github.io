@@ -41,3 +41,23 @@ These issues impact machine learning algorithms, especially those that rely on d
 Deep Metric learning is a group of techniques used to measure the similarity of different data samples. The goal of metric learning is to learn a representation that maps objects into embedding space. The distance in the embedded space should preserve the objects' similarity. Contrastive loss and triplet loss are two popular loss functions.
 
 Deep metric learning typically uses neural networks to create embeddings where semantically similar objects are close to each other and dissimilar objects are far apart. This is particularly useful for face recognition, image retrieval, and recommendation systems.
+
+
+### What is contrasive loss ?
+
+The idea of contrasive loss is to design a loss function that pulls the representations (of images for example) close together for similar images and push them apart the dissimilar images
+
+### What is datacentric AI
+### What is sensitivity ?
+### What is AUC, ROC ?
+### What is specificity ?
+
+
+### What is the intution behing MobileNets
+The big idea behind mobilenets is to use the depthwise seperable convolutions to build light weight deep neural networks. https://machinethink.net/blog/googles-mobile-net-architecture-on-iphone/
+
+### What are heuristics ?
+Heuristics are mental shortcuts that can facilitate problem-solving and probability judgements. These strategies are generalizations or rules of thumb, reduce cognitive load and can be effective for making immediate judgements, however, they often result in irrational or inaccurate conclusions.
+
+### What is cross validation ?
+Cross validation is a method of model evaluation which splits the data in creative ways in order to obtain better estimates of "real world"
