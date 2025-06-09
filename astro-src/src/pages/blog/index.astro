@@ -20,7 +20,7 @@ const sortedPosts = allPosts.sort(
       <p class="text-xl text-gray-600 dark:text-gray-400">Thoughts on machine learning, computer vision, and technology trends</p>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {sortedPosts.map(post => (
         <PostCard post={post} />
       ))}
