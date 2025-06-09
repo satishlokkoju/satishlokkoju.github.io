@@ -1,28 +1,75 @@
 title: Satish Lokkoju
-description: Thoughts and other musings 
-theme: jekyll-theme-modernist
-github:
-  owner_name: Satish Lokkoju
-  linkedin: https://www.linkedin.com/in/lsatish
-  resume: https://www.linkedin.com/in/lsatish
-  repository_url: https://www.github.com/satishlokkoju
-contact:
-  mail: mailto:satish.lokkoju@gmail.com?subject=hello satish
-website:
-  url: http://satishlokkoju.github.io
-  shortened: Satish Lokkoju
-strings:
-  about_me: About Me
-  name: Satish Lokkoju
+description: Applied Scientist & Machine Learning Engineer
+baseurl: ""
+url: "https://satishlokkoju.github.io"
 
+# Author information
+author:
+  name: Satish Lokkoju
+  email: satish.lokkoju@gmail.com
+  linkedin: https://www.linkedin.com/in/lsatish
+  github: https://github.com/satishlokkoju
+  bio: "Applied Scientist at Amazon with 9+ years in Computer Vision, Machine Learning & Deep Learning"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Plugins
 plugins:
-  - jekyll-seo-tag
+  - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
   - jekyll-paginate
 
-paginate: 22
+# Pagination
+paginate: 6
 paginate_path: "/page:num/"
 
-permalink: pretty
+# Permalink structure
+permalink: /:categories/:year/:month/:day/:title/
 
-future: true
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Satish Lokkoju"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# SEO
+twitter:
+  username: satishlokkoju
+  card: summary
+
+social:
+  name: Satish Lokkoju
+  links:
+    - https://www.linkedin.com/in/lsatish
+    - https://github.com/satishlokkoju
+
+# Google Analytics (add your tracking ID)
+# google_analytics: UA-XXXXXXXX-X

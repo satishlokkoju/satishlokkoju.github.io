@@ -1,120 +1,86 @@
 ---
-layout: main
-title: Satish Lokkoju writes about Machine Learning & Economics
-excerpt: Satish Lokkoju is a Research Scientist working for Amazon, writes about Machine Learning & Economics
+layout: default
+title: Home
 ---
 
-{% if page.url == "/" %}
-
-<!-- <div class="section section-basic">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 col-md-6">
-        <a href="/research/">
-          <div class="card">
-            <div class="card-body" style="height: 330px;">
-              <div class="card-image" style="background-image: url(/assets/images/pages/dino-reichmuth-A5rCN8626Ck-unsplash.webp)"></div>
-              <div class="card-title">Research Journey</div>
-              <div class="card-description">Collections of readings and writings along this long PhD journey.</div>
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Hi, I'm <span class="highlight">{{ site.author.name }}</span>
+            </h1>
+            <p class="hero-subtitle">{{ site.author.bio }}</p>
+            <div class="hero-actions">
+                <a href="{{ '/about' | relative_url }}" class="btn btn-primary">Learn More</a>
+                <a href="{{ '/contact' | relative_url }}" class="btn btn-secondary">Get In Touch</a>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-6">
-        <a href="/research/eeg-ssvep/">
-          <div class="card">
-            <div class="card-body" style="height: 330px;">
-              <div class="card-image" style="background-image: url(/assets/images/pages/glasses-notebook-and-laptop.webp)"></div>
-              <div class="card-title">Current Focus</div>
-              <div class="card-description">Right now I'm working on SSVEP Detection</div>
-            </div>
-          </div>
-        </a>
-      </div>
+        </div>
+        <div class="hero-image">
+            <img src="{{ '/assets/images/satish.jpg' | relative_url }}" alt="{{ site.author.name }}" class="profile-image">
+        </div>
     </div>
-  </div>
-</div> -->
+</section>
 
-{% endif %}
-
-  <div class="container">
-    <div class="row">
-
-      {% for post in paginator.posts %}
-        {% if post.show_homepage != false %}
-          {% include post_card.html %}
-        {% endif %}
-        <!-- <div class="col-sm-6 col-md-6 col-lg-4">
-          <a href="{{ page.url | prepend: site.baseurl }}">
-            <div class="card">
-              <div class="card-body" style="height:436px;">
-                <div class="card-image" style="background-image: url({{page.image}})"></div>
-                <span class="badge badge-default">{{ page.date | date_to_string }}</span>
-                <div class="card-title">{{page.title}} {{page.type}}</div>
-                <div class="card-description">{{ page.description | truncate: 160 }}</div>
-                <div class="card-footer">
-                </div>
-              </div>
-            </div>
-          </a>
-        </div> -->
-      {% endfor %}
-
-    </div>
-  </div>
-
-  <div class="container" style="padding-left: 20px; padding-right: 20px; ">
-
-      <div class="row">
-        <div class="col-sm-9">
-          <!-- Pagination links -->
-          {% if paginator.total_pages > 1 %}
-          <ul class="pagination">
-            {% if paginator.previous_page %}
-            <li class="page-item">
-              <a class="page-link" href="{{ paginator.previous_page_path | relative_url }}" aria-label="Previous">
-                <span aria-hidden="true">
-                  <!-- <i class="fa fa-angle-double-left" aria-hidden="true"></i> -->
-                  <i class="material-icons">chevron_left</i>
-                </span>
-              </a>
-            </li>
-            {% endif %}
-
-            {% for page in (1..paginator.total_pages) %}
-              {% if page == paginator.page %}
-                <li class="page-item active">
-                  <a class="page-link" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-                </li>
-              {% elsif page == 1 %}
-                <li class="page-item">
-                  <a class="page-link" href="/">{{ page }}</a>
-                </li>
-              {% else %}
-                <li class="page-item">
-                  <a class="page-link waves-effect" href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-                </li>
-              {% endif %}
+<section class="featured-posts">
+    <div class="container">
+        <div class="section-header">
+            <h2>Latest Articles</h2>
+            <p>Thoughts on machine learning, computer vision, and technology</p>
+        </div>
+        
+        <div class="posts-grid">
+            {% for post in site.posts limit:6 %}
+                {% include post-card.html %}
             {% endfor %}
-
-            {% if paginator.next_page %}
-            <li class="page-item">
-              <a class="page-link" href="{{ paginator.next_page_path | relative_url }}" aria-label="Next">
-                <span aria-hidden="true">
-                  <!-- <i class="fa fa-angle-double-right" aria-hidden="true"></i> -->
-                  <i class="material-icons">chevron_right</i>
-                </span>
-              </a>
-            </li>
-            {% endif %}
-          </ul>
-          {% endif %}
-
-          <!-- END Pagination links -->
         </div>
-        <div class="col-sm-3" style="text-align:right;">
-          <a href="/tags/">Browse articles by tags</a>
-        </div>
-      </div>
+        
+        {% if site.posts.size > 6 %}
+            <div class="section-footer">
+                <a href="{{ '/blog' | relative_url }}" class="btn btn-outline">View All Posts</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
 
-  </div>
+<section class="skills-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Expertise</h2>
+            <p>Areas of focus and technical skills</p>
+        </div>
+        
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Machine Learning</h3>
+                <p>Deep learning, computer vision, and AI model development for production systems</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Computer Vision</h3>
+                <p>Image processing, object detection, and visual recognition systems</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Software Engineering</h3>
+                <p>Scalable systems, algorithm optimization, and production ML pipelines</p>
+            </div>
+            
+            <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Research</h3>
+                <p>Published research in computer vision with multiple patents and publications</p>
+            </div>
+        </div>
+    </div>
+</section>

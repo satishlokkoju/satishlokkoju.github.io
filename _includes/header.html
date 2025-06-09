@@ -1,0 +1,31 @@
+<header class="site-header">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ '/' | relative_url }}" class="nav-brand">
+                <span class="brand-name">{{ site.author.name }}</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="{{ '/' | relative_url }}" class="nav-link">Blog</a>
+                <a href="{{ '/about' | relative_url }}" class="nav-link">About</a>
+                <a href="{{ '/projects' | relative_url }}" class="nav-link">Projects</a>
+                <a href="{{ '/contact' | relative_url }}" class="nav-link">Contact</a>
+            </div>
+            
+            <div class="nav-social">
+                <a href="{{ site.author.github }}" target="_blank" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="{{ site.author.linkedin }}" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+</header>

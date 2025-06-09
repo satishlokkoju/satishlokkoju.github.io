@@ -1,80 +1,37 @@
-<!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-{% seo %}
-
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <style>
-      hr { 
-        margin-top: 1.5em;
-        margin-bottom: 1.5em;
-      } 
-
-      div {
-        margin-top : 10px;
-      }
-    </style>
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header {% unless site.description or site.github.project_tagline %} class="without-description" {% endunless %}>
-        <h1>{{ site.title | default: site.github.repository_name }}</h1>
-        {% if site.description or site.github.project_tagline %}
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
-        {% endif %}
-        <p><a href="{{ site.github.repository_url }}">View the Project on GitHub <small> Satish Lokkoju</small></a></p>
-        <ul>
-          <li><a href="{{ site.github.linkedin }}"><svg class="svg-icon"><use xlink:href="/assets/images/minima-icons.svg#linkedin"></use></svg> Goto <strong>Linkedin</strong> </a></li>
-          <li><a href="{{ site.github.resume }}">Download <strong>Resume</strong></a></li>
-          <li><a href="{{ site.github.repository_url }}"><svg class="svg-icon"><use xlink:href="/assets/images/minima-icons.svg#github"></use></svg> Goto <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-
-      {{ content }} 
-
-      </section>
-    </div>
-
-    <div id="hyvor-talk-view" class="wrapper_disqus"></div>
-    <script type="text/javascript">
-        var HYVOR_TALK_WEBSITE = 429; // DO NOT CHANGE THIS
-        var HYVOR_TALK_CONFIG = {
-            url: '{{ page.url | absolute_url }}',
-            id: '{{page.id}}'
-        };
-    </script>
-    <script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
-
-    <footer>
-    {% if site.github.is_project_page %}
-      <p>Personal site of <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-    {% endif %}
-      <p>Hosted on GitHub Pages &mdash; Theme inspired from <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     
-    {% if site.google_analytics %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ site.google_analytics }}', 'auto');
-        ga('send', 'pageview');
-      </script>
-    {% endif %}
-
-  </body>
+    <!-- SEO -->
+    {% seo %}
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ '/assets/images/moonshot.png' | relative_url }}">
+</head>
+<body>
+    {% include header.html %}
+    
+    <main class="main-content">
+        {{ content }}
+    </main>
+    
+    {% include footer.html %}
+    
+    <!-- Scripts -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
 </html>

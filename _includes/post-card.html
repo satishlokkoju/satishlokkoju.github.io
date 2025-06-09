@@ -1,0 +1,30 @@
+<article class="post-card">
+    <a href="{{ post.url | relative_url }}" class="post-card-link">
+        {% if post.image %}
+            <div class="post-card-image">
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy">
+            </div>
+        {% endif %}
+        
+        <div class="post-card-content">
+            <div class="post-card-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+                {% if post.tags.size > 0 %}
+                    <span class="post-card-tag">{{ post.tags.first }}</span>
+                {% endif %}
+            </div>
+            
+            <h3 class="post-card-title">{{ post.title }}</h3>
+            
+            {% if post.description %}
+                <p class="post-card-excerpt">{{ post.description | truncate: 120 }}</p>
+            {% else %}
+                <p class="post-card-excerpt">{{ post.content | strip_html | truncate: 120 }}</p>
+            {% endif %}
+            
+            <div class="post-card-footer">
+                <span class="read-more">Read more <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </a>
+</article>
