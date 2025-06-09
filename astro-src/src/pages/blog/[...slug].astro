@@ -56,7 +56,7 @@ const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
       </header>
       
       <!-- Post Content -->
-      <div class="prose dark:prose-invert prose-lg max-w-none">
+      <div class="prose dark:prose-invert prose-lg">
         <Content />
       </div>
       
@@ -96,13 +96,16 @@ const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
   </article>
 </Layout>
 
-<style>
+<style is:global>
+  /* Base prose styling */
   .prose {
-    @apply text-gray-800 dark:text-gray-200;
+    @apply text-gray-800 dark:text-gray-200 max-w-none leading-relaxed;
   }
   
+  /* Headings */
   .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-    @apply text-gray-900 dark:text-white font-bold my-6;
+    @apply text-gray-900 dark:text-white font-bold scroll-mt-20;
+    @apply my-6;
   }
   
   .prose h1 {
@@ -110,34 +113,99 @@ const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
   }
   
   .prose h2 {
-    @apply text-2xl;
+    @apply text-2xl border-b border-gray-200 dark:border-gray-800 pb-2;
   }
   
   .prose h3 {
     @apply text-xl;
   }
-  
-  .prose a {
-    @apply text-primary-600 dark:text-primary-400 font-medium;
+
+  .prose h4 {
+    @apply text-lg;
+  }
+
+  /* Paragraphs and spacing */
+  .prose p {
+    @apply my-4;
+  }
+
+  .prose ul, .prose ol {
+    @apply my-6 ml-6;
+  }
+
+  .prose li {
+    @apply my-2;
+  }
+
+  .prose ul {
+    @apply list-disc;
+  }
+
+  .prose ol {
+    @apply list-decimal;
   }
   
+  /* Links */
+  .prose a {
+    @apply text-primary-600 dark:text-primary-400 font-medium hover:underline;
+  }
+  
+  /* Code blocks */
   .prose pre {
-    @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto;
+    @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto my-6;
   }
   
   .prose code {
-    @apply text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5;
+    @apply font-mono text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5;
   }
   
   .prose pre code {
-    @apply bg-transparent p-0;
+    @apply bg-transparent p-0 text-sm block;
   }
   
+  /* Images */
   .prose img {
-    @apply rounded-lg;
+    @apply rounded-lg mx-auto my-6 max-w-full h-auto;
   }
   
+  /* Blockquotes */
   .prose blockquote {
-    @apply border-l-4 border-primary-500 dark:border-primary-400 pl-4 italic;
+    @apply border-l-4 border-primary-500 dark:border-primary-400 pl-4 py-1 my-6 italic bg-gray-50 dark:bg-gray-800/50;
+  }
+
+  /* Tables */
+  .prose table {
+    @apply w-full my-6 border-collapse;
+  }
+
+  .prose table th {
+    @apply bg-gray-100 dark:bg-gray-800 text-left py-2 px-3 font-semibold border border-gray-300 dark:border-gray-700;
+  }
+
+  .prose table td {
+    @apply py-2 px-3 border border-gray-300 dark:border-gray-700;
+  }
+
+  /* Horizontal Rule */
+  .prose hr {
+    @apply my-8 border-t border-gray-300 dark:border-gray-700;
+  }
+
+  /* Definition Lists */
+  .prose dl {
+    @apply my-6;
+  }
+
+  .prose dt {
+    @apply font-bold;
+  }
+
+  .prose dd {
+    @apply ml-6 my-2;
+  }
+
+  /* Fix for nested lists */
+  .prose ul ul, .prose ol ol, .prose ul ol, .prose ol ul {
+    @apply my-2;
   }
 </style>
