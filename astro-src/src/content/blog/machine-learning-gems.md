@@ -48,7 +48,11 @@ Deep metric learning typically uses neural networks to create embeddings where s
 The idea of contrasive loss is to design a loss function that pulls the representations (of images for example) close together for similar images and push them apart the dissimilar images
 
 ### What is datacentric AI
+
+
 ### What is sensitivity ?
+
+
 ### What is AUC, ROC ?
 
 Area under the curve and Receiver operating characteristic curve are two metrics used to evaluate the performance of binary classification models.
