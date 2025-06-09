@@ -50,6 +50,9 @@ The idea of contrasive loss is to design a loss function that pulls the represen
 ### What is datacentric AI
 ### What is sensitivity ?
 ### What is AUC, ROC ?
+
+Area under the curve and Receiver operating characteristic curve are two metrics used to evaluate the performance of binary classification models.
+
 ### What is specificity ?
 
 
