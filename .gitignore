@@ -1,12 +1,12 @@
-_astro
-about
-assets
-blog
-projects
-index.html
-404.html
-favicon.svg
-moonshot.png
-Gemfile.lock
-*.*DS_Store
-.env
+# Ignore everything
+*
+
+# But keep these directories and their contents
+!astro-src/
+!astro-src/**
+!.github/
+!.github/**
+
+# Still ignore DS_Store files even in tracked folders
+**/.DS_Store
+**/**DS_Store
