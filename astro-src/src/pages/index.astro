@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+// Get blog posts for the featured section
+const allPosts = await getCollection('blog');
+const featuredPosts = allPosts.sort(
+  (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()
+).slice(0, 6);
+
+const authorName = 'Satish Lokkoju';
+const authorBio = 'Machine Learning Engineer and Computer Vision Researcher';
+---
+
+<Layout title="Home">
+  <section class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+    <div class="container mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+      <div class="md:w-1/2">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          Hi, I'm <span class="text-primary-600 dark:text-primary-400">{authorName}</span>
+        </h1>
+        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8">{authorBio}</p>
+        <div class="flex gap-4">
+          <a href="/about" class="btn btn-primary">
+            Learn More
+          </a>
+          <a href="mailto:contact@satishlokkoju.com" class="btn btn-secondary">
+            Get In Touch
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+          <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 opacity-75 blur"></div>
+          <img 
+            src="/assets/images/satish.jpg" 
+            alt={authorName} 
+            class="relative w-64 h-64 rounded-full object-cover border-4 border-white dark:border-gray-800"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20">
+    <div class="container mx-auto">
+      <div class="section-header">
+        <h2>Latest Articles</h2>
+        <p>Thoughts on machine learning, computer vision, and technology</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {featuredPosts.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+      
+      {allPosts.length > 6 && (
+        <div class="mt-12 text-center">
+          <a href="/blog" class="btn btn-outline">
+            View All Posts
+          </a>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto">
+      <div class="section-header">
+        <h2>Expertise</h2>
+        <p>Areas of focus and technical skills</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-primary-600 dark:text-primary-400 text-3xl mb-4">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Machine Learning</h3>
+          <p class="text-gray-600 dark:text-gray-400">Deep learning, computer vision, and AI model development for production systems</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-primary-600 dark:text-primary-400 text-3xl mb-4">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Computer Vision</h3>
+          <p class="text-gray-600 dark:text-gray-400">Image processing, object detection, and visual recognition systems</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-primary-600 dark:text-primary-400 text-3xl mb-4">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Software Engineering</h3>
+          <p class="text-gray-600 dark:text-gray-400">Scalable systems, algorithm optimization, and production ML pipelines</p>
+        </div>
+        
+        <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-primary-600 dark:text-primary-400 text-3xl mb-4">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Research</h3>
+          <p class="text-gray-600 dark:text-gray-400">Published research in computer vision with multiple patents and publications</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

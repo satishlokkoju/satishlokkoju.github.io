@@ -1,0 +1,185 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// Project data (could be moved to a content collection in the future)
+const projects = [
+  {
+    title: "Parametric Human Body Modeling",
+    description: "Advanced 3D human body modeling system using parametric representations. Implements state-of-the-art algorithms for body shape estimation and pose reconstruction.",
+    github: "https://github.com/satishlokkoju/parametric-human-body",
+    demo: "",
+    image: "",
+    featured: true,
+    tags: ["Python", "Computer Vision", "3D Modeling"]
+  },
+  {
+    title: "Neural Network in C++",
+    description: "A lightweight, customizable neural network implementation in C++. Configurable hidden layers, input/output dimensions, and activation functions for efficient machine learning applications.",
+    github: "https://github.com/satishlokkoju/simpleneuralnetwork",
+    demo: "",
+    image: "",
+    featured: true,
+    tags: ["C++", "Machine Learning", "Neural Networks"]
+  },
+  {
+    title: "Computer Vision Toolkit",
+    description: "A comprehensive toolkit for common computer vision tasks including image processing, feature extraction, and object detection algorithms.",
+    github: "https://github.com/satishlokkoju/cv-toolkit",
+    demo: "",
+    image: "",
+    featured: true, 
+    tags: ["Python", "OpenCV", "Computer Vision"]
+  },
+  {
+    title: "TensorFlow.js Experiments",
+    description: "Collection of machine learning models and experiments implemented using TensorFlow.js for in-browser ML capabilities.",
+    github: "https://github.com/satishlokkoju/tfjs-experiments",
+    demo: "",
+    image: "",
+    featured: false,
+    tags: ["JavaScript", "TensorFlow.js", "Web ML"]
+  }
+];
+
+const featuredProjects = projects.filter(project => project.featured);
+const otherProjects = projects.filter(project => !project.featured);
+---
+
+<Layout title="Projects" description="A showcase of technical projects and open source contributions">
+  <div class="container mx-auto py-16">
+    <!-- Hero Section -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h1 class="text-4xl font-bold mb-4">Projects & Work</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">
+        A collection of my technical projects, research work, and open source contributions in machine learning and computer vision.
+      </p>
+    </div>
+    
+    <!-- Featured Projects -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold mb-8">Featured Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredProjects.map(project => (
+          <div class="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-800 flex flex-col">
+            {project.image && (
+              <div class="aspect-video overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            )}
+            
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-xl font-bold mb-3">{project.title}</h3>
+              <p class="text-gray-700 dark:text-gray-300 mb-6 flex-grow">{project.description}</p>
+              
+              <div class="flex flex-wrap gap-2 mb-4">
+                {project.tags.map(tag => (
+                  <span class="text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              
+              <div class="flex gap-3 mt-auto">
+                {project.github && (
+                  <a 
+                    href={project.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"
+                  >
+                    <i class="fab fa-github mr-1"></i> Code
+                  </a>
+                )}
+                
+                {project.demo && (
+                  <a 
+                    href={project.demo} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 ml-4"
+                  >
+                    <i class="fas fa-external-link-alt mr-1"></i> Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Other Projects -->
+    {otherProjects.length > 0 && (
+      <div>
+        <h2 class="text-2xl font-bold mb-8">More Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {otherProjects.map(project => (
+            <div class="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-800 p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="text-lg font-bold">{project.title}</h3>
+                
+                <div class="flex gap-2">
+                  {project.github && (
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      aria-label="GitHub Repository"
+                    >
+                      <i class="fab fa-github"></i>
+                    </a>
+                  )}
+                  
+                  {project.demo && (
+                    <a 
+                      href={project.demo} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                      aria-label="Live Demo"
+                    >
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  )}
+                </div>
+              </div>
+              
+              <p class="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
+              
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map(tag => (
+                  <span class="text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+    
+    <!-- Open Source -->
+    <div class="mt-16 bg-gray-50 dark:bg-gray-800 rounded-lg p-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Open Source Contributions</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-6">
+          I'm passionate about open source software and regularly contribute to various projects in the machine learning and computer vision communities.
+        </p>
+        <a 
+          href="https://github.com/satishlokkoju" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          <i class="fab fa-github mr-2"></i> View GitHub Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

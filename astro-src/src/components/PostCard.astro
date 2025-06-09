@@ -1,0 +1,65 @@
+---
+interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+const { slug, data } = post;
+const { title, description, publishDate, image, tags } = data;
+
+// Format date
+const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<article class="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm hover:shadow transition-shadow">
+  <a href={`/blog/${slug}`} class="block">
+    {image && (
+      <div class="aspect-video overflow-hidden">
+        <img 
+          src={image} 
+          alt={title} 
+          class="w-full h-full object-cover transition-transform hover:scale-105"
+        />
+      </div>
+    )}
+  </a>
+
+  <div class="p-4">
+    {tags && tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-3">
+        {tags.slice(0, 2).map(tag => (
+          <span class="text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+    
+    <h3 class="text-lg font-bold mb-2">
+      <a href={`/blog/${slug}`} class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400">
+        {title}
+      </a>
+    </h3>
+    
+    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">
+      {formattedDate}
+    </p>
+    
+    {description && (
+      <p class="text-gray-700 dark:text-gray-300 mb-3 line-clamp-2 text-sm">
+        {description}
+      </p>
+    )}
+    
+    <a href={`/blog/${slug}`} class="inline-flex items-center text-primary-600 dark:text-primary-400 font-medium">
+      Read more 
+      <svg class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </a>
+  </div>
+</article>

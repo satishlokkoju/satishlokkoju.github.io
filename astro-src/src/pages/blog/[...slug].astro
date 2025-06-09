@@ -1,0 +1,143 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}) satisfies GetStaticPaths;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, description, publishDate, image, tags } = entry.data;
+
+// Format date
+const formattedDate = new Date(publishDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<Layout title={title} description={description}>
+  <article class="container mx-auto py-16">
+    <div class="max-w-4xl mx-auto">
+      <!-- Post Header -->
+      <header class="mb-8">
+        {tags && tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mb-3">
+            {tags.map(tag => (
+              <span class="text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+        
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
+        
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Published on {formattedDate}
+        </p>
+        
+        {image && (
+          <div class="rounded-lg overflow-hidden mb-8">
+            <img 
+              src={image} 
+              alt={title} 
+              class="w-full h-auto"
+            />
+          </div>
+        )}
+      </header>
+      
+      <!-- Post Content -->
+      <div class="prose dark:prose-invert prose-lg max-w-none">
+        <Content />
+      </div>
+      
+      <!-- Post Footer -->
+      <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+          <a href="/blog" class="flex items-center text-primary-600 dark:text-primary-400 font-medium mb-4 md:mb-0">
+            <svg class="w-4 h-4 mr-1 rotate-180" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+            Back to all posts
+          </a>
+          
+          <div class="flex space-x-4">
+            <a 
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              aria-label="Share on Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a 
+              href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(Astro.url.href)}&title=${encodeURIComponent(title)}`} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              aria-label="Share on LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .prose {
+    @apply text-gray-800 dark:text-gray-200;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply text-gray-900 dark:text-white font-bold my-6;
+  }
+  
+  .prose h1 {
+    @apply text-3xl;
+  }
+  
+  .prose h2 {
+    @apply text-2xl;
+  }
+  
+  .prose h3 {
+    @apply text-xl;
+  }
+  
+  .prose a {
+    @apply text-primary-600 dark:text-primary-400 font-medium;
+  }
+  
+  .prose pre {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-lg p-4 overflow-x-auto;
+  }
+  
+  .prose code {
+    @apply text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 rounded px-1 py-0.5;
+  }
+  
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+  
+  .prose img {
+    @apply rounded-lg;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-primary-500 dark:border-primary-400 pl-4 italic;
+  }
+</style>

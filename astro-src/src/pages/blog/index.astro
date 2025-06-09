@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts, sorted by publish date
+const allPosts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+const sortedPosts = allPosts.sort(
+  (a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf()
+);
+---
+
+<Layout title="Blog" description="Articles about machine learning, computer vision, and technology">
+  <div class="container mx-auto py-16">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <h1 class="text-4xl font-bold mb-4">Blog</h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400">Thoughts on machine learning, computer vision, and technology trends</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {sortedPosts.map(post => (
+        <PostCard post={post} />
+      ))}
+    </div>
+    
+    {sortedPosts.length === 0 && (
+      <div class="text-center py-20">
+        <p class="text-gray-600 dark:text-gray-400">No posts found. Check back soon!</p>
+      </div>
+    )}
+  </div>
+</Layout>
