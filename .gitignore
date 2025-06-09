@@ -1,4 +1,12 @@
-_site
+_astro
+about
+assets
+blog
+projects
+index.html
+404.html
+favicon.svg
+moonshot.png
 Gemfile.lock
 *.*DS_Store
 .env
